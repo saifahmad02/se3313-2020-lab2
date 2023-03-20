@@ -15,7 +15,7 @@ struct MyShared{
 	int reportID;
 	int timePassed;	//stores time passed since thread was initialized. I stopped using it. 
 	int totalTime;
-	int delayT;
+	int delayTime;
 };
 
 int main(void)
@@ -27,7 +27,7 @@ int main(void)
 	while (count <60){
 	time_t last = time(0);
 	int timer = last-first;
-		cout<<"Thread Number: " <<sharedMemory->threadNum << " | Report Count: " << sharedMemory->reportID << " | Time Elapsed: " << timer << " | Delay: " << sharedMemory->delayT <<"\n";
+		cout<<"Thread Number: " <<sharedMemory->threadNum << " | Report Count: " << sharedMemory->reportID << " | Time Elapsed: " << timer << " | Delay: " << sharedMemory->delayTime <<"\n";
 		count++;
 		sleep(1);
 	}

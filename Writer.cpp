@@ -13,6 +13,7 @@ struct MyShared{
 	int threadNum;
 	int reportID;
 	int timePassed;
+	int delayTime
 };
 
 
@@ -23,9 +24,9 @@ class WriterThread : public Thread{
 		int delay;
 		int reportID = 0;
 		
-		WriterThread(int in, int delayTime):Thread(delayTime*1000){
+		WriterThread(int in, int delayT):Thread(delayT*1000){
 			this->threadNumber = in; 
-			this->delay = delayTime;
+			this->delay = delayT;
 			//alters property of a memory referenced object with -> notation
 			
 		}
@@ -45,7 +46,7 @@ class WriterThread : public Thread{
 				sharedMemory-> threadNum = threadNumber; //set the shared memory location to the thread ID we are currently on
 				sharedMemory-> timePassed = timeElapsed;
 				sharedMemory-> reportID = reportID;		//update all the stuff for our shared memory location. 
-								  
+				sharedMamory-> delayTime = delay;				  
 				if(flag){//Exit loop to end the thread
 					break;
 				}
